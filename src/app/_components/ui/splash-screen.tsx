@@ -7,10 +7,13 @@ const typewriterVariants = {
   hidden: { opacity: 0 },
   visible: (i: number) => ({
     opacity: 1,
-    transition: { delay: i * 0.1, ease: "easeInOut", duration: 0.6 },
-    exit: { opacity: 0, transition: { duration: 0.5 } },
+    transition: { delay: i * 0.2, ease: "easeInOut", duration: 0.6 },
+    exit: { opacity: 0, transition: { duration: 1.5 } },
   }),
-  exit: { opacity: 0, transition: { duration: 0.5 } },
+  exit: {
+    opacity: 1,
+    transition: { duration: 1.5, ease: "easeInOut", delay: 1 },
+  },
 };
 
 export const SplashScreen: React.FC = () => {
