@@ -1,10 +1,11 @@
+import { TError } from "@/app/_entities/type";
 import { api } from "./init";
 
-api.interceptors.request.use(
-  (config) => {
-    return config;
+api.interceptors.response.use(
+  (resp) => {
+    return resp;
   },
-  (error) => {
-    return Promise.reject(error);
+  (error: TError) => {
+    return error;
   },
 );

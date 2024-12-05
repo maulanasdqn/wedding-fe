@@ -1,4 +1,4 @@
-import { useUrlSearchParams } from "../../_hooks/use-url-search-params";
+import { useUrlSearchParams } from "@/app/_hooks/use-url-search-params";
 
 export const useWelcomeBanner = () => {
   const { getParams } = useUrlSearchParams();
