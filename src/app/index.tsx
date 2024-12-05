@@ -5,5 +5,11 @@ export const app = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        lazy: () => import("./landing/page"),
+      },
+    ],
   },
 ]);

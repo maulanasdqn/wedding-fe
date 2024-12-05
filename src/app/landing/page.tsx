@@ -1,10 +1,11 @@
-import { FC, Fragment, ReactElement } from "react";
-import { LandingHeader } from "./_components/header";
+import { FC, Suspense, ReactElement } from "react";
+import { lazily } from "react-lazily";
+const { WelcomeBanner } = lazily(() => import("./_components/welcome-banner"));
 
 export const Component: FC = (): ReactElement => {
   return (
-    <Fragment>
-      <LandingHeader />
-    </Fragment>
+    <Suspense>
+      <WelcomeBanner />
+    </Suspense>
   );
 };
