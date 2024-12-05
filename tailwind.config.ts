@@ -5,6 +5,15 @@ const config: Config = {
   darkMode: ["class", '[data-mode="dark"]'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Bebas Neue", "sans-serif"],
+        body: ["Bebas Neue", "sans-serif"],
+        normal: ["Bebas Neue", "sans-serif"],
+        bold: ["Bebas Neue", "sans-serif"],
+        semibold: ["Bebas Neue", "sans-serif"],
+        regular: ["Bebas Neue", "sans-serif"],
+        medium: ["Bebas Neue", "sans-serif"],
+      },
       animation: {
         "draw-line": "draw-line 1.5s ease-in-out infinite",
       },

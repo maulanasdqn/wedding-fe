@@ -1,11 +1,10 @@
 import { useEffect, useState, type FC, type ReactElement } from "react";
-import { RootLoading } from "./loading";
 import { Outlet } from "react-router-dom";
+import { SplashScreen } from "../_components/ui/splash-screen";
 
 export const RootLayout: FC = (): ReactElement => {
-  const loadTimeOut = 4;
   const [loadPage, setLoadPage] = useState(false);
-
+  const loadTimeOut = 4;
   const parseLoad = parseInt(`${loadTimeOut / 2}000`);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export const RootLayout: FC = (): ReactElement => {
           <Outlet />
         </section>
       ) : (
-        <RootLoading />
+        <SplashScreen />
       )}
     </main>
   );
