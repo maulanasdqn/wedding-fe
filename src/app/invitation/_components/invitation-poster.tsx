@@ -4,12 +4,12 @@ import { FC, ReactElement, Suspense, useState } from "react";
 import { Tab } from "./tab";
 import { BrideGroom } from "./brid-groom";
 import { OurStory } from "./our-story";
+import { ImageGallery } from "./image-gallery";
 
 const { Calendar, Eye, MapPin, MessageCircle } = lazily(
   () => import("lucide-react"),
 );
 
-const { ImageGallery } = lazily(() => import("./image-gallery"));
 const { AudioControl } = lazily(() => import("./audio-control"));
 const { Navbar } = lazily(() => import("@/app/_components/ui/navbar"));
 
