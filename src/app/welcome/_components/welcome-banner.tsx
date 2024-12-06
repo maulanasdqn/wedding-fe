@@ -1,13 +1,13 @@
 import { FC, ReactElement, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useWelcomeBanner } from "../_hooks/use-welcome-banner";
+import { useWelcome } from "../_hooks/use-welcome";
 import { useNavigate } from "react-router-dom";
 
 export const WelcomeBanner: FC = (): ReactElement => {
   const [animationStage, setAnimationStage] = useState<
     "initial" | "expanded" | "shrunk"
   >("initial");
-  const { isDouble, firstName, secondName, inviteText } = useWelcomeBanner();
+  const { isDouble, firstName, secondName, inviteText } = useWelcome();
   const navigate = useNavigate();
 
   const handleImageClick = () => {
@@ -90,7 +90,7 @@ export const WelcomeBanner: FC = (): ReactElement => {
       transition={{ duration: 1, ease: "easeInOut" }}
       className="flex flex-col justify-start items-center py-20 bg-black h-screen"
     >
-      <h1 className="text-[#E50914] font-bold tracking-wider text-5xl transform [text-transform:uppercase] [text-shadow:0px_0px_3px_rgba(0,0,0,0.5)]">
+      <h1 className="text-[#E50914] font-bold font-neue tracking-wider text-5xl transform [text-transform:uppercase] [text-shadow:0px_0px_3px_rgba(0,0,0,0.5)]">
         NIKAHFIX
       </h1>
       <div className="flex flex-col justify-center h-full items-center">

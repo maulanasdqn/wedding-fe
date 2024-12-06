@@ -1,4 +1,4 @@
-export const landingRouter = [
+export const welcomeRouter = [
   {
     path: "/",
     lazy: () => import("./page"),

@@ -1,6 +1,6 @@
 import { useUrlSearchParams } from "@/app/_hooks/use-url-search-params";
 
-export const useWelcomeBanner = () => {
+export const useWelcome = () => {
   const { getParams } = useUrlSearchParams();
 
   const guestName = getParams.to;

@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
     { icon: Home, label: "Beranda", key: "home" },
     { icon: MessageCircle, label: "Ucapan", key: "search" },
     { icon: MapPin, label: "Lokasi", key: "downloads" },
-    { icon: User, label: "My Nikahfix", key: "my-nikahfix" },
+    { icon: User, label: "M & F", key: "my-nikahfix" },
   ];
 
   return (

@@ -1,8 +1,8 @@
 import { useEffect, useState, type FC, type ReactElement } from "react";
 import { Outlet } from "react-router-dom";
-import { SplashScreen } from "../_components/ui/splash-screen";
+import { WelcomeLoading } from "./loading";
 
-export const LandingLayout: FC = (): ReactElement => {
+export const WelcomeLayout: FC = (): ReactElement => {
   const [loadPage, setLoadPage] = useState(false);
   const loadTimeOut = 4;
   const parseLoad = parseInt(`${loadTimeOut / 2}000`);
@@ -18,7 +18,7 @@ export const LandingLayout: FC = (): ReactElement => {
           <Outlet />
         </section>
       ) : (
-        <SplashScreen />
+        <WelcomeLoading />
       )}
     </main>
   );

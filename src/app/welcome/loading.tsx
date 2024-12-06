@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { FC, ReactElement } from "react";
 
 const text = "NIKAHFIX";
 
@@ -16,10 +16,10 @@ const typewriterVariants = {
   },
 };
 
-export const SplashScreen: React.FC = () => {
+export const WelcomeLoading: FC = (): ReactElement => {
   return (
-    <div className="fixed font-sans inset-0 flex items-center justify-center bg-black px-8 transition-all duration-1000">
-      <div className="flex text-red-600 font-bold text-7xl tracking-wider">
+    <div className="fixed font-neue inset-0 flex items-center justify-center bg-black px-8 transition-all duration-1000">
+      <div className="flex text-red-600 font-bold text-7xl tracking-tight">
         {text.split("").map((letter, index) => (
           <motion.span
             key={index}
