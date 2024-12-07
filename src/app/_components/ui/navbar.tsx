@@ -31,7 +31,7 @@ export const Navbar: FC = (): ReactElement => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-[#141414] rounded-tl-lg rounded-tr-lg backdrop-blur-sm">
+    <div className="fixed bottom-0 max-w-[500px] left-1/2 -translate-x-1/2 w-full bg-[#141414] rounded-tl-lg rounded-tr-lg backdrop-blur-sm">
       <div className="flex justify-around items-center py-3">
         {navItems.map((item) => (
           <motion.div
@@ -81,7 +81,7 @@ export const TopNavbar: FC<{
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-black">
+    <div className="fixed top-0 max-w-[500px] left-1/2 -translate-x-1/2 w-full bg-black">
       <div className="flex justify-between px-4 items-center py-3">
         {navItems.map((item) => (
           <motion.div
