@@ -10,10 +10,10 @@ const imageData = [
   { id: 3, src: "/gallery/3.JPG" },
   { id: 4, src: "/gallery/4.JPG" },
   { id: 5, src: "/gallery/5.JPG" },
-  { id: 6, src: "https://via.placeholder.com/300x400" },
-  { id: 7, src: "https://via.placeholder.com/300x400" },
-  { id: 8, src: "https://via.placeholder.com/300x400" },
-  { id: 9, src: "https://via.placeholder.com/300x400" },
+  { id: 6, src: "/gallery/6.JPG" },
+  { id: 7, src: "/gallery/7.JPG" },
+  { id: 8, src: "/gallery/8.JPG" },
+  { id: 9, src: "/gallery/9.JPG" },
 ];
 
 export const Memories: FC<TImageGalleryProps> = ({

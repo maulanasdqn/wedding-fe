@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { lazily } from "react-lazily";
 import { FC, ReactElement, Suspense, useState } from "react";
+import { Link } from "react-router-dom";
 
 const { Calendar, Eye, MapPin, MessageCircle } = lazily(
   () => import("lucide-react")
@@ -48,9 +49,11 @@ export const InvitationPoster: FC = (): ReactElement => {
               <MapPin /> Kanaya Resto & Caffe
             </p>
           </div>
-          <button className="bg-white font-bold flex items-center gap-x-2 justify-center text-black py-3 px-4 rounded-md text-sm">
-            <Eye /> Detail Acara
-          </button>
+          <Link to="/detail">
+            <button className="bg-white font-bold flex items-center gap-x-2 justify-center text-black py-3 px-4 rounded-md text-sm">
+              <Eye /> Detail Acara
+            </button>
+          </Link>
           <button className="text-sm font-bold flex items-center gap-x-2 justify-center bg-black border text-white py-3 px-4 rounded-md">
             <MessageCircle /> Ucapkan Sesuatu
           </button>

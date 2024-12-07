@@ -3,17 +3,35 @@ import { FC, ReactElement } from "react";
 const imageData = [
   {
     id: 1,
-    src: "https://via.placeholder.com/200x100",
-    story: "Dikala itu disebuah matahari terbenam, kami bertemu wadidwda wacaw",
-    title: "Bertemu dikampus",
-    year: "2023",
+    src: "/gallery/story1.JPG",
+    story:
+      "Dikala itu di suatu kampus kita saling mengenal,bertemu,dan seiring berjalannya waktu kita tambah mengenal 1 sama lain",
+    title: "Pertemuan",
+    year: "2020",
   },
   {
     id: 2,
-    src: "https://via.placeholder.com/200x100",
-    story: "Dikala itu disebuah matahari terbenam, kami bertemu wadidwda wacaw",
-    title: "Ngapain lagi ya",
-    year: "2023",
+    src: "/gallery/story2.JPG",
+    story:
+      "Setelah beberapa drama perkuliahan dan kehidupan, kami pun saling mengsupport satu sama lain",
+    title: "Mulai Bersama",
+    year: "2021",
+  },
+  {
+    id: 3,
+    src: "/gallery/story4.JPG",
+    story:
+      "Harapan semakin nyata ketika hal hal baik datang untuk mempersiapkan rencana kedepan, saat itulah kita mencoba meyakinkan diri untuk selangkah lebih maju",
+    title: "Lamaran",
+    year: "2024",
+  },
+  {
+    id: 4,
+    src: "/gallery/story3.JPG",
+    story:
+      "Moment wisuda pun jadi saksi betapa kita ingin bersama menghadapi part part kehidupan selanjutnya",
+    title: "Wisuda",
+    year: "2024",
   },
 ];
 
