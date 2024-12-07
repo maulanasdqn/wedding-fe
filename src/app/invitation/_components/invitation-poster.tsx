@@ -40,7 +40,9 @@ export const InvitationPoster: FC = (): ReactElement => {
       >
         <VideoControl />
         <div className="flex flex-col gap-y-4 mt-4 text-white text-left px-4">
-          <h2 className="text-2xl font-bold">Maul & Fenny : Sebelum Hari H</h2>
+          <h2 className="text-2xl font-bold">
+            Maul & Fenny : Married After Graduate
+          </h2>
           <div className="flex flex-col gap-y-3">
             <p className="text-sm flex items-center gap-x-2">
               <Calendar /> 2024 - 12 - 14
