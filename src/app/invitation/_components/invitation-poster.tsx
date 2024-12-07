@@ -3,7 +3,7 @@ import { lazily } from "react-lazily";
 import { FC, ReactElement, Suspense, useState } from "react";
 
 const { Calendar, Eye, MapPin, MessageCircle } = lazily(
-  () => import("lucide-react"),
+  () => import("lucide-react")
 );
 const { Tab } = lazily(() => import("./tab"));
 const { Navbar } = lazily(() => import("@/app/_components/ui/navbar"));
@@ -55,9 +55,10 @@ export const InvitationPoster: FC = (): ReactElement => {
             <MessageCircle /> Ucapkan Sesuatu
           </button>
           <p className="text-xs text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            sint voluptates repellat. Soluta, aspernatur. Corrupti, quas.
-            Repellat autem
+            Pesan dari calon pengantin : Kami meminta doa restu dari semua.
+            Mohon maaf akan keterbatasan tempat,lokasi,makanan dan keterbatasan
+            tamu yang terundang. Terimakasih atas dukungan dan doa-doa dari
+            semua pihak.
           </p>
         </div>
         <Tab active={activeTab} setActive={setActiveTab} />
