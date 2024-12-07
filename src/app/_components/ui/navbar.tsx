@@ -1,6 +1,6 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { lazily } from "react-lazily";
 
 const User = () => <img src="/netflix.png" alt="user" className="w-8 h-auto" />;
@@ -11,7 +11,7 @@ const { Home, MessageCircle, MapPin, ArrowLeft, VolumeX, Volume1 } = lazily(
 
 export const Navbar: FC = (): ReactElement => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("home");
+  const location = useLocation();
 
   const openGoogleMaps = () => {
     const url =
@@ -20,17 +20,22 @@ export const Navbar: FC = (): ReactElement => {
   };
 
   const navItems = [
-    { icon: Home, label: "Beranda", key: "home" },
+    {
+      icon: Home,
+      label: "Beranda",
+      key: "home",
+      onClick: () => navigate("/invitation/home"),
+    },
     {
       icon: MessageCircle,
       label: "Ucapan",
-      key: "search",
+      key: "form",
       onClick: () => navigate("/invitation/form"),
     },
     {
       icon: MapPin,
       label: "Lokasi",
-      key: "downloads",
+      key: "location",
       onClick: openGoogleMaps,
     },
     { icon: User, label: "M & F", key: "my-nikahfix" },
@@ -44,17 +49,16 @@ export const Navbar: FC = (): ReactElement => {
             key={item.key}
             className="flex flex-col items-center cursor-pointer"
             onClick={() => {
-              setActiveTab(item.key);
               item.onClick?.();
             }}
             whileTap={{ scale: 0.9 }}
           >
             <item.icon
               size={24}
-              color={activeTab === item.key ? "white" : "gray"}
+              color={location.pathname.includes(item.key) ? "white" : "gray"}
             />
             <motion.p
-              className={`text-xs mt-1 ${activeTab === item.key ? "text-white" : "text-gray-400"}`}
+              className={`text-xs mt-1 ${location.pathname.includes(item.key) ? "text-white" : "text-gray-400"}`}
             >
               {item.label}
             </motion.p>

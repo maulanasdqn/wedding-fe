@@ -6,7 +6,7 @@ export const invitationRouter = [
     element: <InvitationLayout />,
     children: [
       {
-        path: "",
+        path: "home",
         lazy: () => import("./page"),
       },
 

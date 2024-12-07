@@ -28,7 +28,7 @@ export const WelcomeBanner: FC = (): ReactElement => {
     let timeoutId: NodeJS.Timeout;
     if (animationStage === "shrunk") {
       timeoutId = setTimeout(() => {
-        navigate("/invitation");
+        navigate("/invitation/home");
       }, 500);
     }
     return () => clearTimeout(timeoutId);
