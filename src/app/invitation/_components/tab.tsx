@@ -1,32 +1,49 @@
+import { motion } from "framer-motion";
 import { FC, ReactElement } from "react";
 
-type TProps = {
+type TTabProps = {
   active: string;
   setActive: (value: string) => void;
 };
 
-export const Tab: FC<TProps> = ({ active, setActive }): ReactElement => {
+export const Tab: FC<TTabProps> = ({ active, setActive }): ReactElement => {
+  const variant = {
+    whileHover: {
+      scale: 1.1,
+    },
+    whileTap: {
+      scale: 0.9,
+      background: "red",
+    },
+    blink: {
+      backgroundColor: ["#ffffff", "transparent"],
+    },
+  };
+
   return (
-    <div className="w-full mt-8">
+    <div className="w-full flex flex-col mt-8 select-none">
       <div className="w-full h-[3px] bg-gray-900/90" />
-      <span
-        onClick={() => setActive("bride-groom")}
-        className={`text-white text-sm font-semibold ${active === "bride-groom" && "border-t-[3px] border-red-700"} py-1  px-4`}
-      >
-        Bride & Groom
-      </span>
-      <span
-        onClick={() => setActive("our-story")}
-        className={`text-white text-sm font-semibold ${active === "our-story" && "border-t-[3px] border-red-700"} py-1  px-4`}
-      >
-        Our Story
-      </span>
-      <span
-        onClick={() => setActive("memories")}
-        className={`text-white text-sm font-semibold ${active === "memories" && "border-t-[3px] border-red-700"} py-1  px-4`}
-      >
-        Memories
-      </span>
+      <div className="flex justify-start items-center">
+        {[
+          { id: "bride-groom", label: "Bride & Groom" },
+          { id: "our-story", label: "Our Story" },
+          { id: "memories", label: "Memories" },
+        ].map((tab) => (
+          <motion.div
+            key={tab.id}
+            variants={variant}
+            whileHover={{ scale: 1.1 }}
+            whileTap="blink"
+            onClick={() => setActive(tab.id)}
+            animate={active === tab.id ? { scale: 1.2 } : { scale: 1 }}
+            className={`text-white text-xs font-semibold ${
+              active === tab.id && "border-t-[3px] border-red-700"
+            } py-1 px-4`}
+          >
+            {tab.label}
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };

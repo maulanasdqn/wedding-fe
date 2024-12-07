@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import { FC, ReactElement, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Home,
-  MessageCircle,
-  MapPin,
-  ArrowLeft,
-  VolumeX,
-  Volume1,
-} from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { lazily } from "react-lazily";
 
 const User = () => <img src="/netflix.png" alt="user" className="w-8 h-auto" />;
 
-export const Navbar: React.FC = () => {
+const { Home, MessageCircle, MapPin, ArrowLeft, VolumeX, Volume1 } = lazily(
+  () => import("lucide-react"),
+);
+
+export const Navbar: FC = (): ReactElement => {
   const [activeTab, setActiveTab] = useState("home");
 
   const navItems = [
@@ -48,10 +45,10 @@ export const Navbar: React.FC = () => {
   );
 };
 
-export const TopNavbar: React.FC<{
+export const TopNavbar: FC<{
   audio: boolean;
   onClick: () => void;
-}> = ({ audio, onClick }) => {
+}> = ({ audio, onClick }): ReactElement => {
   const navigate = useNavigate();
 
   const navItems = [
