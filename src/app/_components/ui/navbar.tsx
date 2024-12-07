@@ -12,10 +12,21 @@ const { Home, MessageCircle, MapPin, ArrowLeft, VolumeX, Volume1 } = lazily(
 export const Navbar: FC = (): ReactElement => {
   const [activeTab, setActiveTab] = useState("home");
 
+  const openGoogleMaps = () => {
+    const url =
+      "https://www.google.com/maps/place/Kanaya+Food+Court/@-6.8932531,107.6355664,18z/data=!4m6!3m5!1s0x2e68e7a5abc8e9c3:0x16dbc3cec4a648b!8m2!3d-6.8935936!4d107.6359289!16s%2Fg%2F11b61qy3rh?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D";
+    window.open(url, "_blank");
+  };
+
   const navItems = [
     { icon: Home, label: "Beranda", key: "home" },
     { icon: MessageCircle, label: "Ucapan", key: "search" },
-    { icon: MapPin, label: "Lokasi", key: "downloads" },
+    {
+      icon: MapPin,
+      label: "Lokasi",
+      key: "downloads",
+      onClick: openGoogleMaps,
+    },
     { icon: User, label: "M & F", key: "my-nikahfix" },
   ];
 
@@ -26,7 +37,10 @@ export const Navbar: FC = (): ReactElement => {
           <motion.div
             key={item.key}
             className="flex flex-col items-center cursor-pointer"
-            onClick={() => setActiveTab(item.key)}
+            onClick={() => {
+              setActiveTab(item.key);
+              item.onClick?.();
+            }}
             whileTap={{ scale: 0.9 }}
           >
             <item.icon
