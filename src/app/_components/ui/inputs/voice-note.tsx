@@ -119,15 +119,10 @@ export const VoiceNote = <T extends FieldValues>({
     }
   };
 
-  const formatDuration = (seconds: number | undefined): string => {
-    if (seconds === undefined || isNaN(seconds)) return "00:00";
-
+  const formatDuration = (seconds: number): string => {
+    if (seconds <= 0 || isNaN(seconds)) return "00:00";
     const minutes = Math.floor(seconds / 60);
-    if (minutes === 0 || isNaN(minutes)) return "00:00";
-
     const remainingSeconds = Math.floor(seconds % 60);
-    if (remainingSeconds === 0 || isNaN(remainingSeconds)) return "00:00";
-
     return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
   };
 
@@ -207,7 +202,7 @@ export const VoiceNote = <T extends FieldValues>({
               <span className="text-sm text-gray-400">
                 {audioRef.current?.duration
                   ? formatDuration(audioRef.current.duration)
-                  : formatDuration(recordingDuration)}
+                  : "00:00"}
               </span>
             </div>
           )}
