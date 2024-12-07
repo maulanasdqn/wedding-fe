@@ -3,7 +3,7 @@ import { TResponse } from "@/app/_entities/type";
 export type TReservationItem = {
   id: string;
   fullname: string;
-  attendence: boolean;
+  attendance: string;
   speech: string;
   speech_audio: string;
 };
@@ -34,24 +34,14 @@ export type TUploadThingRequest = {
   contentDisposition: string;
 };
 
-export type TUploadAudioResponse = TResponse<TUploadThingItem[]>;
+export type TUploadAudioResponse = {
+  file_url: string;
+};
 
 export type TDownloadAudioRequest = {
   fileKey: string;
 };
 
 export type TDownloadAudioResponse = {
-  status: string;
-  file: {
-    fileKey: string;
-    fileName: string;
-    fileSize: number;
-    fileType: string;
-    fileUrl: string;
-    customId: string;
-    callbackUrl: string;
-    callbackSlug: string;
-  };
-  metadata: unknown;
-  callbackData: unknown;
+  file_url: string;
 };

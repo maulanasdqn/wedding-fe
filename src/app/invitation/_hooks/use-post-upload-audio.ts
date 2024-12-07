@@ -1,12 +1,12 @@
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
-import { TUploadAudioResponse, TUploadThingRequest } from "../_entities/type";
+import { TUploadAudioResponse } from "../_entities/type";
 import { TError } from "@/app/_entities/type";
 import { postUploadAudio } from "../_api";
 
 export const usePostUploadAudio = (): UseMutationResult<
   TUploadAudioResponse,
   TError,
-  TUploadThingRequest,
+  File,
   unknown
 > => {
   return useMutation({

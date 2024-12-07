@@ -4,14 +4,12 @@ import { FC, ReactElement, Suspense, useState } from "react";
 import { Link } from "react-router-dom";
 
 const { Calendar, Eye, MapPin, MessageCircle } = lazily(
-  () => import("lucide-react")
+  () => import("lucide-react"),
 );
 const { Tab } = lazily(() => import("./tab"));
-const { Navbar } = lazily(() => import("@/app/_components/ui/navbar"));
 const { Memories } = lazily(() => import("./memories"));
 const { OurStory } = lazily(() => import("./our-story"));
 const { BrideGroom } = lazily(() => import("./bride-groom"));
-const { AudioControl } = lazily(() => import("./audio-control"));
 const { VideoControl } = lazily(() => import("./video-control"));
 
 const LoadingFallback: FC = () => (
@@ -51,14 +49,22 @@ export const InvitationPoster: FC = (): ReactElement => {
               <MapPin /> Kanaya Resto & Caffe
             </p>
           </div>
-          <Link to="/detail">
-            <button className="bg-white font-bold flex items-center gap-x-2 justify-center text-black py-3 px-4 rounded-md text-sm">
+          <Link to="/invitation/detail">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className="bg-white w-full font-bold flex items-center gap-x-2 justify-center text-black py-3 px-4 rounded-md text-sm"
+            >
               <Eye /> Detail Acara
-            </button>
+            </motion.button>
           </Link>
-          <button className="text-sm font-bold flex items-center gap-x-2 justify-center bg-black border text-white py-3 px-4 rounded-md">
-            <MessageCircle /> Ucapkan Sesuatu
-          </button>
+          <Link to="/invitation/form">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className="text-sm font-bold w-full flex items-center gap-x-2 justify-center bg-black border text-white py-3 px-4 rounded-md"
+            >
+              <MessageCircle /> Ucapkan Sesuatu
+            </motion.button>
+          </Link>
           <p className="text-xs text-white">
             Pesan dari calon pengantin : Kami meminta doa restu dari semua.
             Mohon maaf akan keterbatasan tempat,lokasi,makanan dan keterbatasan
@@ -74,8 +80,6 @@ export const InvitationPoster: FC = (): ReactElement => {
             <Memories isLoading={activeTab !== "memories"} />
           )}
         </Suspense>
-        <Navbar />
-        <AudioControl />
       </motion.div>
     </Suspense>
   );

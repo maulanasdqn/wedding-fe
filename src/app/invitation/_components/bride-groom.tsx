@@ -24,7 +24,7 @@ export const BrideGroom: FC = (): ReactElement => (
           className="flex text-white items-center gap-x-4 p-2"
         >
           <img
-            loading="lazy"
+            loading="eager"
             src={image.src}
             alt={`Image ${image.id}`}
             className="w-[150px] h-[150px] object-cover rounded-lg"

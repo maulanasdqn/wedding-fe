@@ -10,6 +10,7 @@ const { Home, MessageCircle, MapPin, ArrowLeft, VolumeX, Volume1 } = lazily(
 );
 
 export const Navbar: FC = (): ReactElement => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("home");
 
   const openGoogleMaps = () => {
@@ -20,7 +21,12 @@ export const Navbar: FC = (): ReactElement => {
 
   const navItems = [
     { icon: Home, label: "Beranda", key: "home" },
-    { icon: MessageCircle, label: "Ucapan", key: "search" },
+    {
+      icon: MessageCircle,
+      label: "Ucapan",
+      key: "search",
+      onClick: () => navigate("/invitation/form"),
+    },
     {
       icon: MapPin,
       label: "Lokasi",
@@ -31,7 +37,7 @@ export const Navbar: FC = (): ReactElement => {
   ];
 
   return (
-    <div className="fixed bottom-0 max-w-[500px] left-1/2 -translate-x-1/2 w-full bg-[#141414] rounded-tl-lg rounded-tr-lg backdrop-blur-sm">
+    <div className="fixed z-50 bottom-0 max-w-[500px] left-1/2 -translate-x-1/2 w-full bg-[#141414] rounded-tl-lg rounded-tr-lg backdrop-blur-sm">
       <div className="flex justify-around items-center py-3">
         {navItems.map((item) => (
           <motion.div
@@ -60,8 +66,8 @@ export const Navbar: FC = (): ReactElement => {
 };
 
 export const TopNavbar: FC<{
-  audio: boolean;
-  onClick: () => void;
+  audio?: boolean;
+  onClick?: () => void;
 }> = ({ audio, onClick }): ReactElement => {
   const navigate = useNavigate();
 
@@ -72,16 +78,19 @@ export const TopNavbar: FC<{
       key: "back",
       onClick: () => navigate(-1),
     },
-    {
+  ];
+
+  if (audio !== undefined) {
+    navItems.push({
       icon: audio ? VolumeX : Volume1,
       label: "",
       key: "audio",
-      onClick,
-    },
-  ];
+      onClick: onClick || (() => {}),
+    });
+  }
 
   return (
-    <div className="fixed top-0 max-w-[500px] left-1/2 -translate-x-1/2 w-full bg-black">
+    <div className="fixed z-50 top-0 max-w-[500px] left-1/2 -translate-x-1/2 w-full bg-black">
       <div className="flex justify-between px-4 items-center py-3">
         {navItems.map((item) => (
           <motion.div

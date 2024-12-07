@@ -37,11 +37,11 @@ const imageData = [
 
 export const OurStory: FC = (): ReactElement => (
   <div className="flex flex-col h-full gap-y-8 bg-black mt-10 mb-[90px] px-2">
-    {imageData.map((image) => (
-      <div className="flex flex-col gap-y-2 text-white w-full">
+    {imageData.map((image, index) => (
+      <div key={index} className="flex flex-col gap-y-2 text-white w-full">
         <div className="w-auto flex items-center gap-x-4 gap-y-2">
           <img
-            loading="lazy"
+            loading="eager"
             key={image.id}
             src={image.src}
             alt={`Image ${image.id}`}

@@ -1,11 +1,8 @@
-import { api, uploadThing } from "@/libs/axios/init";
+import { api } from "@/libs/axios/init";
 import {
-  TDownloadAudioRequest,
-  TDownloadAudioResponse,
   TReservationRequest,
   TReservationResponse,
   TUploadAudioResponse,
-  TUploadThingRequest,
 } from "../_entities/type";
 import { TMeta } from "@/app/_entities/type";
 
@@ -30,22 +27,17 @@ export const postReservation = async (payload: TReservationRequest) => {
 };
 
 export const postUploadAudio = async (
-  payload: TUploadThingRequest,
+  payload: File,
 ): Promise<TUploadAudioResponse> => {
-  const { data } = await uploadThing({
-    method: "post",
-    url: "/uploadFiles",
-    data: payload,
-  });
-  return data;
-};
-
-export const getAudio = async (
-  params: TDownloadAudioRequest,
-): Promise<TDownloadAudioResponse> => {
+  const formData = new FormData();
+  formData.append("file", payload);
   const { data } = await api({
-    method: "get",
-    url: `/pollUpload/${params.fileKey}`,
+    method: "post",
+    url: "/upload",
+    data: formData,
+    headers: {
+      "Content-Type": "application/form-data",
+    },
   });
   return data;
 };

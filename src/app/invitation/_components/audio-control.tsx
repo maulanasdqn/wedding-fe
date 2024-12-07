@@ -26,7 +26,7 @@ export const AudioControl: FC = (): ReactElement => {
     <Fragment>
       <TopNavbar onClick={togglePlayPause} audio={paused} />
       {audioPlaying && (
-        <audio ref={audioRef} id="audio" autoPlay>
+        <audio ref={audioRef} loop id="audio" autoPlay>
           <source src="/lagu-nikah.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>

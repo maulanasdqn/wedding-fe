@@ -18,7 +18,6 @@ export const Component: FC = (): ReactElement => {
   return (
     <Suspense>
       <div className="flex flex-col h-full bg-black text-white font-sans">
-        {/* Banner */}
         <div className="relative">
           <img
             src={eventDetails.bannerSrc}
@@ -26,18 +25,20 @@ export const Component: FC = (): ReactElement => {
             className="w-full h-[300px] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black flex flex-col justify-end p-6">
-            <h1 className="text-3xl font-bold text-red-600">Nikahfix M & F</h1>
-            <p className="text-md text-white ">A love story will begin</p>
+            <h1 className="text-3xl font-bold font-neue shadow-lg text-red-600">
+              Nikahfix M & F
+            </h1>
+            <p className="text-md text-white font-sans">
+              A love story will begin
+            </p>
           </div>
         </div>
 
-        {/* Detail Section */}
         <div className="px-6 ">
           <h2 className="text-2xl font-bold text-red-600 mb-3">
             Event Details
           </h2>
 
-          {/* Akad Section */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold">Akad</h3>
             <p className="text-sm">
@@ -52,7 +53,6 @@ export const Component: FC = (): ReactElement => {
             </p>
           </div>
 
-          {/* Resepsi Section */}
           <div>
             <h3 className="text-2lg font-semibold ">Resepsi</h3>
             <p className="text-sm">
