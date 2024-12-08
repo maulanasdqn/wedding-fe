@@ -22,11 +22,10 @@ export const TextArea = <T extends FieldValues>(
   props: TTextArea<T>,
 ): ReactElement => {
   const className = clsx(
-    "w-full p-3 rounded bg-gray-800 text-gray-100 font-medium transition-colors resize-none",
+    "w-full p-3 rounded bg-gray-800 text-gray-100 font-medium transition-colors focus:outline-none",
     {
-      "border-2 border-red-600 text-red-600 placeholder-red-600": props.message, // Error state styling
-      "border border-gray-600 focus:border-red-600": !props.message, // Default focus styling
-      "focus:ring focus:ring-red-600": !props.message, // Focus ring
+      "border-2 border-red-600 text-red-600 placeholder-red-600": props.message,
+      "border border-gray-600 focus:border-red-600": !props.message,
     },
   );
 

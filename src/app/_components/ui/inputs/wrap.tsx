@@ -20,9 +20,7 @@ export const InputWrap: FC<TInputWrap> = (props): ReactElement => {
           props.label
         )}
       </label>
-      <div className="rounded-md bg-gray-800 p-2 focus-within:ring-2 focus-within:ring-red-600">
-        {props.children}
-      </div>
+      <div className="rounded-md bg-gray-800">{props.children}</div>
       {props.message && (
         <span className="text-red-600 text-xs font-medium">
           {props.message}

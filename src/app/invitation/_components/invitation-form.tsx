@@ -25,6 +25,7 @@ export const InvitationForm: FC = (): ReactElement => {
   });
 
   const attendenceOptions = [
+    { value: "", label: "Pilih Kehadiran" },
     { value: "true", label: "Hadir" },
     { value: "false", label: "Tidak Hadir" },
   ];
