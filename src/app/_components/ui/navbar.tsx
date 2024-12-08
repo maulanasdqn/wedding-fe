@@ -4,8 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { lazily } from "react-lazily";
 import { Gift } from "lucide-react";
 
-const User = () => <img src="/netflix.png" alt="user" className="w-8 h-auto" />;
-
 const { Home, MessageCircle, MapPin, ArrowLeft, VolumeX, Volume1 } = lazily(
   () => import("lucide-react"),
 );
