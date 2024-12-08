@@ -14,6 +14,11 @@ export const invitationRouter = [
         path: "detail",
         lazy: () => import("./detail/page"),
       },
+
+      {
+        path: "gift",
+        lazy: () => import("./gift/page"),
+      },
     ],
   },
   {

@@ -2,6 +2,7 @@ import { FC, ReactElement } from "react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import { lazily } from "react-lazily";
+import { Gift } from "lucide-react";
 
 const User = () => <img src="/netflix.png" alt="user" className="w-8 h-auto" />;
 
@@ -38,7 +39,12 @@ export const Navbar: FC = (): ReactElement => {
       key: "location",
       onClick: openGoogleMaps,
     },
-    { icon: User, label: "M & F", key: "my-nikahfix" },
+    {
+      icon: Gift,
+      label: "Gift",
+      key: "gift",
+      onClick: () => navigate("/invitation/gift"),
+    },
   ];
 
   return (
