@@ -13,7 +13,7 @@ export const schemaReservation = z.object({
   speech: z
     .string()
     .min(1, "Ucapan harus diisi")
-    .min(30, "Ucapan Minimal 30 karakter")
+    .min(10, "Ucapan Minimal 10 karakter")
     .refine(
       (value) => !badWordRegex.test(value),
       "Kata tersebut tidak diperbolehkan",
